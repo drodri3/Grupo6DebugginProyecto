@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1699917715 source:c:\ulacit\debugging\proyecto\grupo6debugginproyecto\calculadora\main.c
+	<stdio.h>
+	<stdlib.h>
+	"suma.h"
+
+1699917740 c:\ulacit\debugging\proyecto\grupo6debugginproyecto\calculadora\suma.h
+
