@@ -1,88 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <locale.h>
 #include "estandar.h"
+#include "programador.h"
+
+void configurarLocale() {
+    setlocale(LC_ALL, "");  // Utiliza la configuración regional del sistema
+}
 
 int main()
 {
+    configurarLocale();
     //Calculadora estándar
 int opcion, a, b;
 
     do {
-        imprimirMenuCalculadoraEstandar();
+        printf("\nMenu:\n");
+        printf("1. Estándar\n");
+        printf("2. Científica\n");
+        printf("3. Programador\n");
+        printf("0. Finalizar\n");
+        printf("Ingrese su opción: ");
         // Leer la opción del usuario
         scanf("%d", &opcion);
 
         switch (opcion) {
             case 1:
-                printf("Ingrese dos números para sumar:\n");
-                printf("Número 1: ");
-                if(scanf("%d", &a) != 1){
-                    while (getchar() != '\n');
-                    printf("Error: Ingrese un número válido.\n");
-                    continue;
-                }
-                printf("Número 2: ");
-                if(scanf("%d", &b) != 1){
-                    while (getchar() != '\n');
-                    printf("Error: Ingrese un número válido.\n");
-                    continue;
-                }
-                suma(a, b);
+                imprimirMenuCalculadoraEstandar();
                 break;
 
             case 2:
-                printf("Ingrese dos números para restar:\n");
-                printf("Número 1: ");
-                if(scanf("%d", &a) != 1){
-                    while (getchar() != '\n');
-                    printf("Error: Ingrese un número válido.\n");
-                    continue;
-                }
-                printf("Número 2: ");
-                if(scanf("%d", &b) != 1){
-                    while (getchar() != '\n');
-                    printf("Error: Ingrese un número válido.\n");
-                    continue;
-                }
-                resta(a, b);
+
                 break;
 
             case 3:
-                printf("Ingrese dos números para multiplicar:\n");
-                printf("Número 1: ");
-                if(scanf("%d", &a) != 1){
-                    while (getchar() != '\n');
-                    printf("Error: Ingrese un número válido.\n");
-                    continue;
-                }
-                printf("Número 2: ");
-                if(scanf("%d", &b) != 1){
-                    while (getchar() != '\n');
-                    printf("Error: Ingrese un número válido.\n");
-                    continue;
-                }
-                multiplicacion(a, b);
+                menuProgramador();
                 break;
-
-            case 4:
-                printf("Ingrese dos números para dividir:\n");
-                printf("Número 1: ");
-                if(scanf("%d", &a) != 1){
-                    while (getchar() != '\n');
-                    printf("Error: Ingrese un número válido.\n");
-                    continue;
-                }
-                printf("Número 2: ");
-                if(scanf("%d", &b) != 1){
-                    while (getchar() != '\n');
-                    printf("Error: Ingrese un número válido.\n");
-                    continue;
-                }
-                division(a, b);
-                break;
-
             case 0:
-                printf("Volviendo al menu anterior\n");
+                printf("Finalizando...\n");
                 break;
 
             default:
