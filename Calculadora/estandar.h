@@ -17,7 +17,7 @@ void imprimirMenuCalculadoraEstandar()
 
 void suma(int a, int b)
 {
-    printf("El resultado de la suma de %d mas %d es igual a %d\n", a, b, a+b);
+    printf("El resultado de la test de %d mas %d es igual a %d\n", a, b, a+b);
 }
 
 void resta(int a, int b)
