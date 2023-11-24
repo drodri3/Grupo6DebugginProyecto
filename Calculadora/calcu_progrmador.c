@@ -2,11 +2,56 @@
 #include "programador.h"
 
 void decimalABinario() {
-    printf("Test: Decimal a Binario\n");
+    int i = 0;
+    int a;
+    printf("Ingrese el número a convertir:\n");
+    if(scanf("%d", &a) != 1){
+        while (getchar() != '\n');
+        printf("Error: Ingrese un número válido.\n");
+        return;
+    }
+    if (a == 0) {
+        printf("El número en Binario es : 0\n");
+        return;
+    }
+    if (a < 0) {
+        unsigned int numeroNegativo = (unsigned int)-a;
+        printf("El número binario es: 1");
+        for (int i = 30; i >= 0; i--) {
+            int bit = (numeroNegativo >> i) & 1;
+            printf("%d", bit);
+        }
+
+    } else {
+        printf("El número en Binario es : ");
+        for (int i = 31; i >= 0; i--) {
+            int bit = (a >> i) & 1;
+            printf("%d", bit);
+        }
+    }
 }
 
 void decimalAHexadecimal() {
-    printf("Test: Decimal a Hexadecimal\n");
+    int a;
+
+    printf("Ingrese el número a convertir:\n");
+    if(scanf("%d", &a) != 1){
+        while (getchar() != '\n');
+        printf("Error: Ingrese un número válido.\n");
+        return;
+    }
+    if (a == 0) {
+        printf("El número binario es: 0\n");
+        return;
+    }
+
+    if (a < 0) {
+        unsigned int negativoNumero = (unsigned int)-a;
+
+        printf("El número en Hexadecimal es: -%X\n", negativoNumero);
+    } else {
+        printf("El número en Hexadecimal es: %X\n", a);
+    }
 }
 
 void binarioAHexadecimal() {
@@ -21,6 +66,7 @@ void menuProgramador() {
     int opcion, a, b;
 
     do {
+        printf("\n\n");
         printf("Modo Programador:\n");
         printf("1. Decimal a Binario\n");
         printf("2. Decimal a Hexadecimal\n");
