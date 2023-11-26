@@ -3,6 +3,7 @@
 #include <locale.h>
 #include "estandar.h"
 #include "programador.h"
+#include "cientifica.h"
 
 void configurarLocale() {
     setlocale(LC_ALL, "");  // Utiliza la configuración regional del sistema
@@ -30,7 +31,7 @@ int opcion, a, b;
                 break;
 
             case 2:
-
+                imprimirMenuCalculadoraCientifica();
                 break;
 
             case 3:

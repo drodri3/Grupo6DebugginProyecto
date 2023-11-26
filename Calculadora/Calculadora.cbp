@@ -31,9 +31,19 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="calcu_progrmador.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="calculadora_cientifica.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="cientifica.h" />
+		<Unit filename="estandar.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="programador.h" />
+		<Unit filename="suma.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
