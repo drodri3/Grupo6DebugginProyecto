@@ -23,7 +23,7 @@
 
 1700786687 d:\documentos generales\ulacit\debugging\grupo6debugginproyecto\calculadora\programador.h
 
-1700929895 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\main.c
+1701024299 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\main.c
 	<stdio.h>
 	<stdlib.h>
 	<locale.h>
@@ -31,17 +31,17 @@
 	"programador.h"
 	"cientifica.h"
 
-1700848398 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\estandar.h
+1701032063 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\estandar.h
 
 1700848398 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\programador.h
 
-1700848398 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\calcu_progrmador.c
+1701024754 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\calcu_progrmador.c
 	<stdio.h>
 	"programador.h"
 
 1700853948 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\cientifica.h
 
-1701015981 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\calculadora_cientifica.c
+1701027185 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\calculadora_cientifica.c
 	<stdio.h>
 	<math.h>
 	"cientifica.h"

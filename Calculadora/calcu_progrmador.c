@@ -63,7 +63,7 @@ void hexadecimalADecimal() {
 }
 
 void menuProgramador() {
-    int opcion, a, b;
+    char opcion;
 
     do {
         printf("\n\n");
@@ -75,26 +75,36 @@ void menuProgramador() {
         printf("0. Volver al menú anterior\n");
 
         printf("Seleccione una opción: ");
-        scanf("%d", &opcion);
+
+        if (scanf(" %c", &opcion) != 1) {
+            while (getchar() != '\n');
+            printf("Error: Ingrese una opción válida.\n");
+            continue;
+        }
+
+        if (opcion < '0' || opcion > '4') {
+            printf("Error: Ingrese una opción válida.\n");
+            continue;
+        }
 
         switch (opcion) {
-            case 1:
+            case '1':
                 decimalABinario();
                 break;
-            case 2:
+            case '2':
                 decimalAHexadecimal();
                 break;
-            case 3:
+            case '3':
                 binarioAHexadecimal();
                 break;
-            case 4:
+            case '4':
                 hexadecimalADecimal();
                 break;
-            case 0:
+            case '0':
                 printf("Saliendo del Modo Programador.\n");
                 break;
             default:
                 printf("Opción no válida. Intente de nuevo.\n");
         }
-    } while (opcion != 0);
+    } while (opcion != '0');
 }

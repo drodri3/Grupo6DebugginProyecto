@@ -12,8 +12,8 @@ void configurarLocale() {
 int main()
 {
     configurarLocale();
-    //Calculadora estándar
-int opcion, a, b;
+    // Calculadora estándar
+    int opcion;
 
     do {
         printf("\nMenu:\n");
@@ -23,7 +23,17 @@ int opcion, a, b;
         printf("0. Finalizar\n");
         printf("Ingrese su opción: ");
         // Leer la opción del usuario
-        scanf("%d", &opcion);
+
+        if (scanf("%d", &opcion) != 1) {
+            while (getchar() != '\n');
+            printf("Error: Ingrese una opción válida.\n");
+            continue;
+        }
+
+        if (opcion < 0 || opcion > 3) {
+            printf("Error: Ingrese una opción válida.\n");
+            continue;
+        }
 
         switch (opcion) {
             case 1:
@@ -37,6 +47,7 @@ int opcion, a, b;
             case 3:
                 menuProgramador();
                 break;
+
             case 0:
                 printf("Finalizando...\n");
                 break;
@@ -47,7 +58,7 @@ int opcion, a, b;
         }
 
     } while (opcion != 0);
-    //TODO volver al menu principal
 
     return 0;
 }
+

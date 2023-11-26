@@ -3,40 +3,49 @@
 #include "cientifica.h"
 
 void imprimirMenuCalculadoraCientifica() {
-    int opcion, a, b;
+    char opcion;
 
     do {
         printf("\n\n");
         printf("Modo Científico:\n");
-        printf("1. 10 exponente X\n");
-        printf("2. X exponente N\n");
-        printf("3. X exponente 2\n");
+        printf("1. 10 elevado a la X\n");
+        printf("2. X elevado a la N\n");
+        printf("3. Cuadrado de X\n");
         printf("4. Raíz cuadrada de X\n");
         printf("0. Volver al menú anterior\n");
+        printf("Ingrese su opción: ");
 
-        printf("Seleccione una opción: ");
-        scanf("%d", &opcion);
+        if (scanf(" %c", &opcion) != 1) {
+            while (getchar() != '\n');
+            printf("Error: Ingrese una opción válida.\n");
+            continue;
+        }
+
+        if (opcion < '0' || opcion > '4') {
+            printf("Error: Ingrese una opción válida.\n");
+            continue;
+        }
 
         switch (opcion) {
-            case 1:
+            case '1':
                 potencia_de_10();
                 break;
-            case 2:
+            case '2':
                 potencia_de_x();
                 break;
-            case 3:
+            case '3':
                 cuadrado_de_x();
                 break;
-            case 4:
+            case '4':
                 raiz_cuadrada_de_x();
                 break;
-            case 0:
+            case '0':
                 printf("Saliendo del Modo Científico.\n");
                 break;
             default:
                 printf("Opción no válida. Intente de nuevo.\n");
         }
-    } while (opcion != 0);
+    } while (opcion != '0');
 }
 
 
