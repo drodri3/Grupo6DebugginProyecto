@@ -1,30 +1,43 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "programador.h"
 
 void decimalABinario() {
     int i = 0;
     int a;
+
+    // Solicitar al usuario que ingrese un número decimal
     printf("Ingrese el número a convertir:\n");
+
+     // Leer el número decimal desde la entrada estándar
     if(scanf("%d", &a) != 1){
+        // Limpiar el búfer de entrada si la entrada no es válida
         while (getchar() != '\n');
         printf("Error: Ingrese un número válido.\n");
         return;
     }
+    // Verificar si el número es 0
     if (a == 0) {
         printf("El número en Binario es : 0\n");
-        return;
+        return; // Salir de la función si el número es 0
     }
+    // Convertir números negativos a binario (representación en complemento a 2)
     if (a < 0) {
+        // Convertir el número negativo a su representación en complemento a 2
         unsigned int numeroNegativo = (unsigned int)-a;
+        // Imprimir el bit de signo para números negativos
         printf("El número binario es: 1");
+        // Imprimir los bits del número negativo en orden inverso (de mayor a menor)
         for (int i = 30; i >= 0; i--) {
             int bit = (numeroNegativo >> i) & 1;
             printf("%d", bit);
         }
 
     } else {
+        // Convertir números positivos a binario
         printf("El número en Binario es : ");
+        // Imprimir los bits del número en orden inverso (de mayor a menor)
         for (int i = 31; i >= 0; i--) {
             int bit = (a >> i) & 1;
             printf("%d", bit);
@@ -35,63 +48,60 @@ void decimalABinario() {
 void decimalAHexadecimal() {
     int a;
 
+    // Solicitar al usuario que ingrese un número decimal
     printf("Ingrese el número a convertir:\n");
+    // Leer el número decimal desde la entrada estándar
     if(scanf("%d", &a) != 1){
+        // Limpiar el búfer de entrada si la entrada no es válida
         while (getchar() != '\n');
         printf("Error: Ingrese un número válido.\n");
         return;
     }
+    // Verificar si el número es 0
     if (a == 0) {
         printf("El número binario es: 0\n");
         return;
     }
-
-    if (a < 0) {
+    // Convertir números negativos a hexadecimal (representación en complemento a 2)
+    if (a < 0)
+        // Convertir el número negativo a su representación en complemento a 2
         unsigned int negativoNumero = (unsigned int)-a;
-
+        // Imprimir el signo negativo y el valor hexadecimal
         printf("El número en Hexadecimal es: -%X\n", negativoNumero);
     } else {
+        // Convertir números positivos a hexadecimal
         printf("El número en Hexadecimal es: %X\n", a);
     }
 }
 
-int esBinario(long long n) {
-    int tieneDecimales = 0;  // Variable para verificar si hay decimales
-
-    while (n != 0) {
-        int digito = n % 10;
-
-        // Verificar si el dígito no es 0 ni 1
-        if (digito != 0 && digito != 1) {
-            return 0; // No es un dígito binario
+bool esBinarioValido(const char* str) {
+    while (*str != '\0') {
+        if (*str != '0' && *str != '1') {
+            return false; // No es un dígito binario válido
         }
-
-        // Verificar si ya se encontró un dígito decimal
-        if (tieneDecimales && (digito == '.' || digito == ',')) {
-            return 0; // Hay más de un dígito decimal
-        }
-
-        // Si el dígito es un punto decimal, marcar que se encontró un decimal
-        if (digito == '.' || digito == ',') {
-            tieneDecimales = 1;
-        }
-
-        n /= 10;
+        str++;
     }
-
-    return 1; // Todos los dígitos son binarios
+    return true; // Todos los caracteres son binarios
 }
 
 void binarioAHexadecimal() {
-    long long binarioNumber, hex = 0, i = 1, remainder;
+    char binarioStr[64];  // Suficientemente grande para manejar la entrada
+    long long binarioNumber = 0, hex = 0, i = 1, remainder;
 
     printf("Ingrese el número binario: ");
-    if (scanf("%lld", &binarioNumber) != 1 || !esBinario(binarioNumber)) {
-        while (getchar() != '\n');
-        printf("Error: Ingrese un número binario válido.\n");
+
+    // Leer la cadena binaria
+    if (scanf("%s", binarioStr) != 1 || !esBinarioValido(binarioStr)) {
+        // Verificar si la entrada es inválida y mostrar un mensaje de error
+        printf("Error: Ingrese un número binario válido (solo 0 y 1).\n");
+        while (getchar() != '\n');  // Limpiar el búfer de entrada
         return;
     }
 
+    // Convertir binario a decimal
+    sscanf(binarioStr, "%lld", &binarioNumber);
+
+    // Convertir binario a hexadecimal
     while (binarioNumber != 0) {
         remainder = binarioNumber % 10;
         hex += remainder * i;
@@ -101,6 +111,7 @@ void binarioAHexadecimal() {
 
     printf("El número en Hexadecimal es: %lX\n", hex);
 }
+
 
 long long convertirhexadecimalADecimal(char* hexadecimal) {
     long long decimal = 0;
@@ -120,7 +131,7 @@ long long convertirhexadecimalADecimal(char* hexadecimal) {
         } else {
             // Caracter no válido
             printf("Error: \"%c\" no es un dígito hexadecimal válido.\n", caracter);
-            exit(EXIT_FAILURE);
+            return -1;  // Indica que la entrada no es válida
         }
 
         // Actualizar el valor decimal
@@ -138,7 +149,10 @@ void hexadecimalADecimal() {
 
     long long decimal = convertirhexadecimalADecimal(hexadecimal);
 
-    printf("El número en Decimal es: %lld\n", decimal);
+    // Verificar si la conversión fue exitosa antes de imprimir el resultado
+    if (decimal != -1) {
+        printf("El número en Decimal es: %lld\n", decimal);
+    }
 }
 
 void menuProgramador() {
