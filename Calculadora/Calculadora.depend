@@ -35,13 +35,14 @@
 
 1700848398 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\programador.h
 
-1701024754 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\calcu_progrmador.c
+1701045213 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\calcu_progrmador.c
 	<stdio.h>
+	<stdlib.h>
 	"programador.h"
 
 1700853948 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\cientifica.h
 
-1701027185 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\calculadora_cientifica.c
+1701032131 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\calculadora_cientifica.c
 	<stdio.h>
 	<math.h>
 	"cientifica.h"

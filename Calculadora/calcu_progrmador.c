@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "programador.h"
 
 void decimalABinario() {
@@ -54,15 +55,94 @@ void decimalAHexadecimal() {
     }
 }
 
+int esBinario(long long n) {
+    int tieneDecimales = 0;  // Variable para verificar si hay decimales
+
+    while (n != 0) {
+        int digito = n % 10;
+
+        // Verificar si el dígito no es 0 ni 1
+        if (digito != 0 && digito != 1) {
+            return 0; // No es un dígito binario
+        }
+
+        // Verificar si ya se encontró un dígito decimal
+        if (tieneDecimales && (digito == '.' || digito == ',')) {
+            return 0; // Hay más de un dígito decimal
+        }
+
+        // Si el dígito es un punto decimal, marcar que se encontró un decimal
+        if (digito == '.' || digito == ',') {
+            tieneDecimales = 1;
+        }
+
+        n /= 10;
+    }
+
+    return 1; // Todos los dígitos son binarios
+}
+
 void binarioAHexadecimal() {
-    printf("Test: Binario a Hexadecimal\n");
+    long long binarioNumber, hex = 0, i = 1, remainder;
+
+    printf("Ingrese el número binario: ");
+    if (scanf("%lld", &binarioNumber) != 1 || !esBinario(binarioNumber)) {
+        while (getchar() != '\n');
+        printf("Error: Ingrese un número binario válido.\n");
+        return;
+    }
+
+    while (binarioNumber != 0) {
+        remainder = binarioNumber % 10;
+        hex += remainder * i;
+        i *= 2;
+        binarioNumber /= 10;
+    }
+
+    printf("El número en Hexadecimal es: %lX\n", hex);
+}
+
+long long convertirhexadecimalADecimal(char* hexadecimal) {
+    long long decimal = 0;
+
+    // Procesar cada dígito hexadecimal
+    for (int i = 0; hexadecimal[i] != '\0'; i++) {
+        char caracter = hexadecimal[i];
+
+        // Obtener el valor del dígito hexadecimal
+        int valor;
+        if (caracter >= '0' && caracter <= '9') {
+            valor = caracter - '0';
+        } else if (caracter >= 'A' && caracter <= 'F') {
+            valor = 10 + caracter - 'A';
+        } else if (caracter >= 'a' && caracter <= 'f') {
+            valor = 10 + caracter - 'a';
+        } else {
+            // Caracter no válido
+            printf("Error: \"%c\" no es un dígito hexadecimal válido.\n", caracter);
+            exit(EXIT_FAILURE);
+        }
+
+        // Actualizar el valor decimal
+        decimal = decimal * 16 + valor;
+    }
+
+    return decimal;
 }
 
 void hexadecimalADecimal() {
-    printf("Test: Hexadecimal a Decimal\n");
+    char hexadecimal[20];
+
+    printf("Ingrese el número hexadecimal: ");
+    scanf("%s", hexadecimal);
+
+    long long decimal = convertirhexadecimalADecimal(hexadecimal);
+
+    printf("El número en Decimal es: %lld\n", decimal);
 }
 
 void menuProgramador() {
+
     char opcion;
 
     do {
