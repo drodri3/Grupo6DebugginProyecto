@@ -85,6 +85,7 @@ void potencia_de_x() {
     double base;
 
     printf("Ingrese la base: ");
+    //Validar el rango de la base
     if (scanf("%lf", &base) != 1 || base < 1e-99 || base > 9.999999999e99) {
         while (getchar() != '\n');  // Limpiar el búfer de entrada
         printf("\nError: Ingrese una base válida.\n");
@@ -92,6 +93,7 @@ void potencia_de_x() {
     }
 
     printf("Ingrese el exponente: ");
+    //Validar el rango del exponente
     if (scanf("%lf", &exponente) != 1 || exponente < -99 || exponente > 99) {
         while (getchar() != '\n');  // Limpiar el búfer de entrada
         printf("\nError: Ingrese un exponente válido entre -99 y 99.\n");
@@ -101,10 +103,10 @@ void potencia_de_x() {
     double resultado;
 
     if (exponente >= 0) {
-        // Potencia de 10 positiva
+        // Potencia de x positiva
         resultado = pow(base, exponente);
     } else {
-        // Potencia de 10 negativa
+        // Potencia de x negativa
         resultado = 1.0 / pow(base, -exponente);
     }
 
@@ -121,6 +123,7 @@ void cuadrado_de_x() {
     double base;
 
     printf("Ingrese la base: ");
+    //Validar rango de la base
     if (scanf("%lf", &base) != 1 || base < 1e-99 || base > 9.999999999e99) {
         while (getchar() != '\n');  // Limpiar el búfer de entrada
         printf("\nError: Ingrese una base válida.\n");
@@ -142,6 +145,7 @@ void raiz_cuadrada_de_x() {
     double numero;
 
     printf("Ingrese el número: ");
+    //Validar numero
     if (scanf("%lf", &numero) != 1) {
         while (getchar() != '\n');
         printf("Error: Ingrese un número válido.\n");

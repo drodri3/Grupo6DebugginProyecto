@@ -50,22 +50,26 @@ void decimalAHexadecimal() {
 
     // Solicitar al usuario que ingrese un número decimal
     printf("Ingrese el número a convertir:\n");
+
     // Leer el número decimal desde la entrada estándar
-    if(scanf("%d", &a) != 1){
+    if (scanf("%d", &a) != 1) {
         // Limpiar el búfer de entrada si la entrada no es válida
         while (getchar() != '\n');
         printf("Error: Ingrese un número válido.\n");
         return;
     }
+
     // Verificar si el número es 0
     if (a == 0) {
-        printf("El número binario es: 0\n");
-        return;
+        printf("El número en Hexadecimal es: 0\n");
+        return; // Salir de la función si el número es 0
     }
+
     // Convertir números negativos a hexadecimal (representación en complemento a 2)
-    if (a < 0)
+    if (a < 0) {
         // Convertir el número negativo a su representación en complemento a 2
         unsigned int negativoNumero = (unsigned int)-a;
+
         // Imprimir el signo negativo y el valor hexadecimal
         printf("El número en Hexadecimal es: -%X\n", negativoNumero);
     } else {
@@ -74,16 +78,20 @@ void decimalAHexadecimal() {
     }
 }
 
-bool esBinarioValido(const char* str) {
+// Función que verifica si una cadena contiene solo dígitos binarios (0 y 1)
+bool esBinarioValido(const char* str){
+    // Recorrer cada caracter en la cadena
     while (*str != '\0') {
+        // Verificar si el caracter actual no es '0' ni '1'
         if (*str != '0' && *str != '1') {
             return false; // No es un dígito binario válido
         }
-        str++;
+        str++;// Moverse al siguiente caracter en la cadena
     }
     return true; // Todos los caracteres son binarios
 }
 
+// Función que convierte un número binario a hexadecimal
 void binarioAHexadecimal() {
     char binarioStr[64];  // Suficientemente grande para manejar la entrada
     long long binarioNumber = 0, hex = 0, i = 1, remainder;
@@ -147,6 +155,7 @@ void hexadecimalADecimal() {
     printf("Ingrese el número hexadecimal: ");
     scanf("%s", hexadecimal);
 
+    // Llamar a la función convertirhexadecimalADecimal para obtener el valor decimal
     long long decimal = convertirhexadecimalADecimal(hexadecimal);
 
     // Verificar si la conversión fue exitosa antes de imprimir el resultado

@@ -31,7 +31,7 @@
 	"programador.h"
 	"cientifica.h"
 
-1701032063 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\estandar.h
+1701051477 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\estandar.h
 
 1700848398 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\programador.h
 
@@ -43,7 +43,7 @@
 
 1700853948 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\cientifica.h
 
-1701032131 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\calculadora_cientifica.c
+1701051427 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\calculadora_cientifica.c
 	<stdio.h>
 	<math.h>
 	"cientifica.h"

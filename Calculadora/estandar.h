@@ -33,12 +33,14 @@ void imprimirMenuCalculadoraEstandar()
             case '1':
                 printf("Ingrese dos números para sumar:\n");
                 printf("Número 1: ");
+                //Validar entrada
                 if (scanf("%d", &a) != 1) {
                     while (getchar() != '\n');
                     printf("Error: Ingrese un número válido.\n");
                     continue;
                 }
                 printf("Número 2: ");
+                //Validar entrada
                 if (scanf("%d", &b) != 1) {
                     while (getchar() != '\n');
                     printf("Error: Ingrese un número válido.\n");
@@ -50,12 +52,14 @@ void imprimirMenuCalculadoraEstandar()
             case '2':
                 printf("Ingrese dos números para restar:\n");
                 printf("Número 1: ");
+                //Validar entrada
                 if (scanf("%d", &a) != 1) {
                     while (getchar() != '\n');
                     printf("Error: Ingrese un número válido.\n");
                     continue;
                 }
                 printf("Número 2: ");
+                //Validar entrada
                 if (scanf("%d", &b) != 1) {
                     while (getchar() != '\n');
                     printf("Error: Ingrese un número válido.\n");
@@ -67,12 +71,14 @@ void imprimirMenuCalculadoraEstandar()
             case '3':
                 printf("Ingrese dos números para multiplicar:\n");
                 printf("Número 1: ");
+                //Validar entrada
                 if (scanf("%d", &a) != 1) {
                     while (getchar() != '\n');
                     printf("Error: Ingrese un número válido.\n");
                     continue;
                 }
                 printf("Número 2: ");
+                //Validar entrada
                 if (scanf("%d", &b) != 1) {
                     while (getchar() != '\n');
                     printf("Error: Ingrese un número válido.\n");
@@ -84,12 +90,14 @@ void imprimirMenuCalculadoraEstandar()
             case '4':
                 printf("Ingrese dos números para dividir:\n");
                 printf("Número 1: ");
+                //Validar entrada
                 if (scanf("%d", &a) != 1) {
                     while (getchar() != '\n');
                     printf("Error: Ingrese un número válido.\n");
                     continue;
                 }
                 printf("Número 2: ");
+                //Validar entrada
                 if (scanf("%d", &b) != 1) {
                     while (getchar() != '\n');
                     printf("Error: Ingrese un número válido.\n");
