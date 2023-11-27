@@ -1,7 +1,16 @@
 #ifndef ESTANDAR_H_INCLUDED
 #define ESTANDAR_H_INCLUDED
+#include <stdbool.h>
 
-
+// Función para validar la entrada de enteros
+bool validarEntero(int *numero) {
+    if (scanf("%d", numero) != 1 || getchar() != '\n') {
+        // Limpiar el búfer de entrada
+        while (getchar() != '\n');
+        return false; // Entrada inválida
+    }
+    return true; // Entrada válida
+}
 
 void imprimirMenuCalculadoraEstandar()
 {
@@ -30,19 +39,17 @@ void imprimirMenuCalculadoraEstandar()
         }
 
         switch (opcion) {
-            case '1':
+                case '1':
                 printf("Ingrese dos números para sumar:\n");
                 printf("Número 1: ");
-                //Validar entrada
-                if (scanf("%d", &a) != 1) {
-                    while (getchar() != '\n');
+                // Validar entrada
+                if (!validarEntero(&a)) {
                     printf("Error: Ingrese un número válido.\n");
                     continue;
                 }
                 printf("Número 2: ");
-                //Validar entrada
-                if (scanf("%d", &b) != 1) {
-                    while (getchar() != '\n');
+                // Validar entrada
+                if (!validarEntero(&b)) {
                     printf("Error: Ingrese un número válido.\n");
                     continue;
                 }
@@ -52,16 +59,14 @@ void imprimirMenuCalculadoraEstandar()
             case '2':
                 printf("Ingrese dos números para restar:\n");
                 printf("Número 1: ");
-                //Validar entrada
-                if (scanf("%d", &a) != 1) {
-                    while (getchar() != '\n');
+                // Validar entrada
+                if (!validarEntero(&a)) {
                     printf("Error: Ingrese un número válido.\n");
                     continue;
                 }
                 printf("Número 2: ");
-                //Validar entrada
-                if (scanf("%d", &b) != 1) {
-                    while (getchar() != '\n');
+                // Validar entrada
+                if (!validarEntero(&b)) {
                     printf("Error: Ingrese un número válido.\n");
                     continue;
                 }
@@ -71,16 +76,14 @@ void imprimirMenuCalculadoraEstandar()
             case '3':
                 printf("Ingrese dos números para multiplicar:\n");
                 printf("Número 1: ");
-                //Validar entrada
-                if (scanf("%d", &a) != 1) {
-                    while (getchar() != '\n');
+               // Validar entrada
+                if (!validarEntero(&a)) {
                     printf("Error: Ingrese un número válido.\n");
                     continue;
                 }
                 printf("Número 2: ");
-                //Validar entrada
-                if (scanf("%d", &b) != 1) {
-                    while (getchar() != '\n');
+                // Validar entrada
+                if (!validarEntero(&b)) {
                     printf("Error: Ingrese un número válido.\n");
                     continue;
                 }
@@ -90,16 +93,14 @@ void imprimirMenuCalculadoraEstandar()
             case '4':
                 printf("Ingrese dos números para dividir:\n");
                 printf("Número 1: ");
-                //Validar entrada
-                if (scanf("%d", &a) != 1) {
-                    while (getchar() != '\n');
+                // Validar entrada
+                if (!validarEntero(&a)) {
                     printf("Error: Ingrese un número válido.\n");
                     continue;
                 }
                 printf("Número 2: ");
-                //Validar entrada
-                if (scanf("%d", &b) != 1) {
-                    while (getchar() != '\n');
+                // Validar entrada
+                if (!validarEntero(&b)) {
                     printf("Error: Ingrese un número válido.\n");
                     continue;
                 }

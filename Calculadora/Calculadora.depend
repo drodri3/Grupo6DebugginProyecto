@@ -31,11 +31,12 @@
 	"programador.h"
 	"cientifica.h"
 
-1701051477 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\estandar.h
+1701052088 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\estandar.h
+	<stdbool.h>
 
 1700848398 c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\programador.h
 
-1701049754 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\calcu_progrmador.c
+1701051598 source:c:\proyecto calculadora c debugging\grupo6debugginproyecto\calculadora\calcu_progrmador.c
 	<stdio.h>
 	<stdlib.h>
 	<stdbool.h>
